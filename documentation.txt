@@ -1,0 +1,177 @@
+1. Basic Git Workflow
+Objective: Learn the basics of Git, including initializing a repository, adding files, making commits, and pushing to a remote repository.
+
+Scenario:
+Create a simple "Hello World" program (in any language).
+Initialize a Git repository.
+Make a few commits as you modify the project.
+Push the changes to GitHub.
+Steps:
+Initialize Git Repository:
+git init
+Create a Hello World file (e.g.helloworld.java).
+import java.io.*;
+public class helloworld
+System.out.println("helloworld")
+Add and commit changes:
+git add helloworld.java
+git commit -m "Initial"
+Connect to a remote repository:
+git remote add origin https://github.com/Sumanth65/helloworld.git
+Push changes to GitHub:
+git push -u origin master 
+
+2. Branching and Merging
+Objective: Understand how to create branches, switch between them, and merge branches.
+
+Scenario:
+Create a project with a main branch.
+Add a new feature on a separate branch.
+Merge the feature branch into main and resolve any merge conflicts.
+
+Steps:
+Create and switch to a new branch:
+git checkout -b feature
+Add new feature (e.g.feature.java):
+print("This is a new feature!")
+Commit the changes:
+git add feature.java
+git commit -m "Add new feature"
+Switch back to the master branch:
+git checkout master
+Merge the feature branch:
+git merge feature
+Resolve any conflicts (if they arise):
+Edit conflicting files and then commit the resolution
+git add <conflicted-file>
+git commit -m "Resolve merge conflict"
+
+3. Collaborative Workflow
+Objective: Learn to collaborate on projects using Git, including cloning repositories, creating pull requests, and conducting code reviews.
+
+Scenario:
+Simulate a team environment.
+Clone a repository.
+Create a branch, make some changes, push the changes, and open a pull request.
+Have someone else review and merge the pull request.
+
+Steps:
+Clone the repository:
+
+git clone https://github.com/Sumanth65/portfolio.git
+Create and switch to a new branch:
+git checkout -b update-history
+Make changes (e.g update History.txt):
+Add some new information to History.txt
+git add History.txt
+git commit -m "Update HISTORY"
+Push the branch:
+git push origin update-history
+Create a pull request on GitHub.
+Review and merge the pull request.
+
+4. Reverting Changes
+Objective: Learn how to undo changes in Git using git revert, git reset, and git checkout.
+Scenario:
+Make changes to a project and commit them.
+Simulate a situation where a change needs to be undone.
+
+
+Make and commit changes:
+git add file helloworld.java
+git commit -m "add file 1"
+Revert the last commit:
+git revert HEAD
+Reset to a previous state (discard commits):
+git reset --hard 5e8b483  ---> this is commit id 
+git reset --soft 5e8b483 ----> A soft reset in Git moves the HEAD to a previous commit while keeping all changes in the staging area, allowing you to recommit them.
+
+5. Using Git with GitHub Pages
+Objective: Practice deploying a simple website using GitHub Pages.
+Scenario:
+Create a static website (e.g., index.html).
+Host it on GitHub Pages.
+Learn to push changes and see them reflected live.
+
+Create an HTML page (index.html):
+Push to GitHub and deploy:
+Ensure your repository is named git@github.com:Sumanth65/portfolio.git
+Push changes:
+git add index.html
+git push origin master
+Visit your website:https://github.com/Sumanth65/portfolio.git
+
+6. Working with Git Tags
+Objective: Understand how to use tags in Git for marking releases.
+
+Scenario:
+Tag specific commits as different versions (e.g., v1.0, v1.1).
+Practice pushing tags to a remote repository.
+
+Steps:
+To create a tag :
+git tag v1.0
+next to add the anomated tag:
+git tag -a v1.1 -m "Release version 1.1"
+Push the all Tags to the remote repository:
+git push origin --tags
+
+7. Stashing Changes
+Objective: Learn how to temporarily save changes using git stash and apply them later.
+Scenario:
+Simulate switching branches with uncommitted changes.
+Use git stash to save your work and apply it later.
+
+Steps:
+Make changes to your project but don't commit them.
+Stash the changes:
+git stash
+Switch branches and work on something else:
+git checkout another-branch
+Apply the stashed changes back:
+git checkout master
+git stash apply --> recent changes recent repository
+stash pop ---> apply & remove 
+stash  to save also  the untracked files  
+stash -u file name
+
+8. Exploring Git History
+Objective: Learn to explore the commit history using git log and git diff.
+Scenario:
+Explore the commit history and changes over time.
+Steps:
+View the commit history:
+git log
+See the differences between commits:
+git diff <commit1> <commit2>
+
+
+9. Git Hooks
+Objective: Learn to automate tasks using Git hooks.
+Scenario:
+Set up a pre-commit hook to enforce code standards before committing.
+
+Steps:
+Create a pre-commit hook:
+Navigate to .git/hooks/ and edit pre-commit file.
+Add a script (e.g.to check code formatting):
+#!/bin/sh
+black --check .
+Make the hook executable:
+chmod +x .git/hooks/pre-commit
+Test the hook by committing changes.
+
+
+10. Git Rebase
+Objective: Understand how to use git rebase to integrate changes from one branch to another.
+Scenario:
+Create a feature branch, make commits, and rebase it onto the main branch.
+Steps:
+
+Create and switch to a feature branch:
+git checkout -b feature
+Make commits on the feature branch.
+Rebase onto main:
+git checkout main
+git rebase feature-branch 
+
